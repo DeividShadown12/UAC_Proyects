@@ -30,31 +30,31 @@
         <ul>
           <li>
             <i class="fa-solid fa-house"></i>
-            <a href="#">Panel de Control</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Panel">Panel de Control</a>
           </li>
           <li>
             <i class="fa-solid fa-user-large"></i>
-            <a href="#">Accesos</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=editar">Accesos</a>
           </li>
           <li>
             <i class="fa-brands fa-stack-overflow"></i>
-            <a href="#">Categorias</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Categorias">Categorias</a>
           </li>
           <li>
             <i class="fa-solid fa-grip-vertical"></i>
-            <a href="#">Productos</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Productos">Productos</a>
           </li>
           <li>
             <i class="fa-solid fa-image"></i>
-            <a href="#">Media</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Media">Media</a>
           </li>
           <li>
             <i class="fa-solid fa-list"></i>
-            <a href="#">Ventas</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Ventas">Ventas</a>
           </li>
           <li>
             <i class="fa-solid fa-chart-column"></i>
-            <a href="#">Reporte Ventas</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Reporte">Reporte Ventas</a>
           </li>
         </ul>
       </nav>

@@ -2,16 +2,30 @@
 
     require_once("modelo/index.php");
 
-    class modeloController{
+    class Controller{
         // Atributos de la clase
         private $model;
 
         public function __construct(){
             $this->model = new Modelo();
         }
+       
         
-        // mostrar
+        // MOSTRAR INDEX
         static function index(){
+            $url = $_REQUEST['url'];
+            require_once("vista/$url.php");
+        }
+
+
+        // REALIZAR CONSULTA
+        static function Consulta($query, $Assoc){   
+            $consu   = new Modelo();
+            $dato    =   $consu->consulta($query, $Assoc);
+        }
+
+        // MOSTRAR TABLA
+        static function ShowTable(){
             $table = $_REQUEST['table'];
             $producto   = new Modelo();
             $dato       =   $producto->mostrar($table,"1");

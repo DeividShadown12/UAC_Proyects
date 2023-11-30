@@ -1,73 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="styles.css" />
+<?php $Model = new Modelo(); ?>
 
-    <!-- ICONS  -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="Logo">
-        <p>SISTEMA INVENTARIO</p>
-      </div>
-      <div class="Barra">
-        <p>SISTEMA INVENTARIO</p>
-      </div>
-    </header>
-
-    <aside>
-      <nav class="SideBar">
-        <ul>
-          <li>
-            <i class="fa-solid fa-house"></i>
-            <a href="#">Panel de Control</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-user-large"></i>
-            <a href="#">Accesos</a>
-          </li>
-          <li>
-            <i class="fa-brands fa-stack-overflow"></i>
-            <a href="#">Categorias</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-grip-vertical"></i>
-            <a href="#">Productos</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-image"></i>
-            <a href="#">Media</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-list"></i>
-            <a href="#">Ventas</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-chart-column"></i>
-            <a href="#">Reporte Ventas</a>
-          </li>
-        </ul>
-      </nav>
-    </aside>
-
-    <main>
-      <div class="Stats">
+<div class="Stats">
         <div class="Card">
           <div class="Card-Icon" style="background-color: #16a085">
             <i class="fa-solid fa-user"></i>
           </div>
           <div class="Card-info">
-            <p class="Card-Num">3</p>
+
+          <?php
+			$dato =  $Model->consulta("SELECT * FROM Cliente", 1);    	
+			?>
+				<p class="Card-Num">  <?php echo count($dato);?> </p> 
+
             <p>Usuarios</p>
           </div>
         </div>
@@ -76,7 +20,12 @@
             <i class="fa-solid fa-list"></i>
           </div>
           <div class="Card-info">
-            <p class="Card-Num">5</p>
+
+		  <?php
+			$dato =  $Model->consulta("SELECT * FROM Categoria", 1);    	
+			?>
+				<p class="Card-Num">  <?php echo count($dato);?> </p>
+
             <p>Categorias</p>
           </div>
         </div>
@@ -85,7 +34,12 @@
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
           <div class="Card-info">
-            <p class="Card-Num">1</p>
+
+		  <?php
+			$dato =  $Model->consulta("SELECT * FROM Producto", 1);    	
+			?>
+				<p class="Card-Num">  <?php echo count($dato);?> </p> 
+
             <p>Productos</p>
           </div>
         </div>
@@ -94,7 +48,12 @@
             <i class="fa-solid fa-coins"></i>
           </div>
           <div class="Card-info">
-            <p class="Card-Num">7</p>
+
+			<?php
+			$dato =  $Model->consulta("SELECT * FROM Venta", 1);    	
+			?>
+				<p class="Card-Num">  <?php echo count($dato);?> </p>
+
             <p>Ventas</p>
           </div>
         </div>
@@ -192,6 +151,3 @@
           </div>
         </div>
       </div>
-    </main>
-  </body>
-</html>

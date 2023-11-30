@@ -1,3 +1,3 @@
 <?php
-	define("urlsite","http://localhost/UAC/");
+	define("urlsite","http://localhost/Proyecto/");
 ?>

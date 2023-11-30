@@ -10,11 +10,31 @@
         public function __construct(){
             $this->Modelo = array();
             $this->db = new PDO('mysql:host=localhost;dbname=Inventario',"root","");
+       
         }
 
+        public function consulta($query, $Assoc){
+            $resultado = $this->db->query($query);
+            if ($resultado) {
+
+                if ($Assoc) {
+                    $this->datos = $resultado->fetchAll(PDO::FETCH_ASSOC);
+                }
+                else {
+                    $this->datos = $resultado->fetchAll(PDO::FETCH_NUM);
+                }
+
+                return $this->datos;
+            }else {
+                echo "Error en la consulta";
+                return;
+            }
+         }
+
+
         public function insertar($tabla, $data){
-            $consulta="insert into ".$tabla." values(null,". $data .")";
-            $resultado=$this->db->query($consulta);
+            $consulta = "insert into ".$tabla." values(null,". $data .")";
+            $resultado = $this->db->query($consulta);
             if ($resultado) {
                 return true;
             }else {
@@ -22,7 +42,7 @@
             }
          }
 
-         public function mostrar($tabla,$condicion){
+        public function mostrar($tabla,$condicion){
             $consul="select * from ".$tabla." where ".$condicion.";";
             $resu=$this->db->query($consul);        
             while($filas = $resu->fetch(PDO::FETCH_ASSOC)) {
