@@ -1,6 +1,15 @@
 <?php $Model = new Modelo(); ?>
 
 <div class="Stats">
+
+	<div style="width: 100%">
+		<a class="btn new" style="width: 150px; font-size: 1.5em; margin-bottom: 20px;" href="index.php?m=nuevo&table=Categoria">
+				<i class="fa-solid fa-plus fa-fade"></i>
+				<p>Nuevo</p>
+		</a>
+	</div>
+	
+
 	<?php
         $dato =  $Model->consulta("SELECT * FROM Categoria", 1);
 		  
@@ -11,7 +20,18 @@
 																			".strval((160 + (1 * (int)$key['Codigo'])) % 255).", 
 																			".strval((133 + (100 * (int)$key['Codigo'])) % 255).")\" ";?>>
 				<div class="CardMini-Head">
-					<p> <?php echo $key['Nombre'] ?> </p>						
+					<a href="http://localhost/Proyecto/index.php?m=index&url=Categorias&on=<?php echo $key['Codigo']?>&table=Producto&nombre=<?php echo $key['Nombre']?>"> 
+
+						<?php echo $key['Nombre'] ?> 
+						
+					</a>
+
+					<div>			
+						<a class="btn delete" href="index.php?m=eliminar&id=<?php echo $key['Codigo']?>&table=Categoria" onclick="return confirm('ESTA SEGURO'); false">
+							<i class="fa-solid fa-trash"></i>
+						</a>
+					</div>
+
 				</div>
 				<div class="CardMini-Footer">
 
@@ -27,4 +47,14 @@
 			</div>
 
 	<?php endforeach; ?>
+
+
+<?php 
+	if(isset($_GET['on'])):    
+    	if(isset($_GET['table'])):    
+			require_once("vista/TablesCategorias.php");
+		endif;	
+	endif;
+?>
+
 </div>

@@ -29,7 +29,7 @@
             $table = $_REQUEST['table'];
             $producto   = new Modelo();
             $dato       =   $producto->mostrar($table,"1");
-            require_once("vista/index.php");
+            require_once("vista/Table.php");
         }
 
         //nuevo

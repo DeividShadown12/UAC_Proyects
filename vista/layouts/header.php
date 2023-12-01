@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema Inventario</title>
-    <link rel="stylesheet" href="./vista/css/styles.css" />
+    <link rel="stylesheet" href="./vista/css/sty.css" />
 
     <!-- ICONS  -->
     <link
@@ -42,7 +42,7 @@
           </li>
           <li>
             <i class="fa-solid fa-grip-vertical"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Productos">Productos</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Producto">Productos</a>
           </li>
           <li>
             <i class="fa-solid fa-image"></i>
@@ -54,7 +54,7 @@
           </li>
           <li>
             <i class="fa-solid fa-chart-column"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Reporte">Reporte Ventas</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Venta">Reporte Ventas</a>
           </li>
         </ul>
       </nav>

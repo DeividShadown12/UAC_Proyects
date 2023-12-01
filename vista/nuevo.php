@@ -1,8 +1,6 @@
-<?php
-	require_once("layouts/header.php");
-?>
-
-<h2 class="text-center">NUEVO</h2>
+<div class="Stats">
+<div class="Form">
+<h2>NUEVO <?php echo strtoupper($table)?></h2>
 <form action="" method="get">
     <?php
         $NTablas = $producto->db->query("DESCRIBE $table");
@@ -17,19 +15,39 @@
                     <?php endif ?> 
 
 
-                    <?php if (str_contains($NCampo, 'CodigoL')):?> 
+                    <?php if (str_contains($NCampo, 'CodigoC')):?> 
 
                         <select class="Input" name="<?php echo strval($NCampo)?>">
 
         
                             <?php  
-                            $Consulta_Libros = $producto->db->query("SELECT  * FROM Libro");
+                            $Consulta_Libros = $producto->db->query("SELECT  * FROM Categoria");
 
                             if ($Consulta_Libros):
                                 $Libros = $Consulta_Libros->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($Libros as $libro):?> 
 
-                                        <option value="<?php echo $libro['Codigo'] ?>"><?php echo $libro['Titulo']?></option>
+                                        <option value="<?php echo $libro['Codigo'] ?>"><?php echo $libro['Nombre']?></option>
+
+                                <?php endforeach; ?>        
+                            <?php endif ?> 
+
+                        </select> <br> 
+
+                    <?php endif ?> 
+                    <?php if (str_contains($NCampo, 'CodigoPr')):?> 
+
+                        <select class="Input" name="<?php echo strval($NCampo)?>">
+
+
+                            <?php  
+                            $Consulta_Libros = $producto->db->query("SELECT  * FROM Proveedor");
+
+                            if ($Consulta_Libros):
+                                $Libros = $Consulta_Libros->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($Libros as $libro):?> 
+
+                                        <option value="<?php echo $libro['Codigo'] ?>"><?php echo $libro['Nombre']?></option>
 
                                 <?php endforeach; ?>        
                             <?php endif ?> 
@@ -39,31 +57,13 @@
                     <?php endif ?>          
             <?php endwhile; ?>
 
-
-
-            <?php if (str_contains($table, 'Libro')):?> 
-
-                <select class="Input" name="CodigoA">
-
-
-                    <?php  
-                    $Consulta_Autor = $producto->db->query("SELECT  * FROM Autor");
-
-                    if ($Consulta_Autor):
-                        $Autor = $Consulta_Autor->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($Autor as $aut):?> 
-
-                                <option value="<?php echo $aut['Codigo'] ?>"><?php echo $aut['Nombre']?></option>
-
-                        <?php endforeach; ?>        
-                    <?php endif ?> 
-
-                </select> <br> 
-
-            <?php endif ?> 
-
         <?php endif ?>  
-    <input type="submit" class="btn" name="btn" value="GUARDAR"> <br>
+    <a class="btn save">
+        <i class="fa-solid fa-floppy-disk fa-shake"></i> 
+        <input type="submit"  name="btn" value="GUARDAR">
+    </a> <br>
     <input type="hidden" name="m" value="guardar">
     <input type="hidden" name="table" value="<?php echo $_REQUEST['table']?>">
 </form>
+</div>
+</div>
