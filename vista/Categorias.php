@@ -3,9 +3,9 @@
 <div class="Stats">
 
 	<div style="width: 100%">
-		<a class="btn new" style="width: 150px; font-size: 1.5em; margin-bottom: 20px;" href="index.php?m=nuevo&table=Categoria">
-				<i class="fa-solid fa-plus fa-fade"></i>
-				<p>Nuevo</p>
+		<a class="btn new" style="width: 150px; font-size: 1.5em; margin-bottom: 20px;" onclick="openModal()">
+			<i class="fa-solid fa-plus fa-fade"></i>
+			<p>Nuevo</p>
 		</a>
 	</div>
 	
@@ -20,7 +20,7 @@
 																			".strval((160 + (1 * (int)$key['Codigo'])) % 255).", 
 																			".strval((133 + (100 * (int)$key['Codigo'])) % 255).")\" ";?>>
 				<div class="CardMini-Head">
-					<a href="http://localhost/Proyecto/index.php?m=index&url=Categorias&on=<?php echo $key['Codigo']?>&table=Producto&nombre=<?php echo $key['Nombre']?>"> 
+					<a href="index.php?m=index&url=Categorias&table=Categoria&on=<?php echo $key['Codigo']?>&tableShow=Producto&nombre=<?php echo $key['Nombre']?>"> 
 
 						<?php echo $key['Nombre'] ?> 
 						
@@ -51,10 +51,12 @@
 
 <?php 
 	if(isset($_GET['on'])):    
-    	if(isset($_GET['table'])):    
+    	if(isset($_GET['tableShow'])):    
 			require_once("vista/TablesCategorias.php");
 		endif;	
 	endif;
 ?>
-
 </div>
+
+<!-- Ventana MODAL -->
+<?php include 'nuevo.php'; ?>

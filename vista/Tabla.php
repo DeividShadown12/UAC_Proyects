@@ -7,7 +7,7 @@
     <div class="Table-Header">
         <i class="fa-solid fa-table"></i>
         <p><?php echo strtoupper($table)?></p>
-		<a class="btn new" style="position: relative;left: 83.5%;" href="index.php?m=nuevo&table=<?php echo $table?>">
+		<a class="btn new" style="position: relative;left: 83.5%;" onclick="openModal()">
 			<i class="fa-solid fa-plus fa-fade"></i>
 			<p>Nuevo</p>
 		</a>
@@ -22,7 +22,7 @@
                         $NCampo = $key['Field'];
                         if ($NCampo != "CodigoC" && $NCampo != "CodigoPr"):?> 
 
-                            <th class="TableHeader" "style="font-weight: bold;"><?php echo strtoupper($NCampo)?></th>
+                            <th class="TableHeader" style="font-weight: bold;"><?php echo strtoupper($NCampo)?></th>
 
                         <?php endif; ?>
                     <?php endforeach; ?>                   
@@ -55,3 +55,6 @@
     </div>
 </div>
 </div>
+
+<!-- Ventana MODAL -->
+<?php include 'nuevo.php'; ?>

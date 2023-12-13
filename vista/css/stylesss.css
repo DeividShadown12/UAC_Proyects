@@ -26,7 +26,7 @@ header {
   justify-content: center;
   background-color: #16a085;
   border-bottom: 2px solid #f1f2f7;
-  z-index: 1;
+  z-index: 0;
 }
 
 .Barra {
@@ -306,13 +306,18 @@ th {
 /* ------------------------------- FORMULARIOS */
 
 .Form {
-  width: 30%;
-  height: auto;
+  width: auto;
+  height: 60vh;
   background-color: #ddd;
 }
 
+.vent {
+  width: 30%;
+  height: auto;
+}
+
 .Form form {
-  padding: 20px;
+  padding: 30px 70px;
   opacity: 0.95;
 }
 
@@ -356,4 +361,54 @@ th {
 
 .Title-Productos {
   text-align: center;
+}
+
+.Option-Btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.Option-Btn > select {
+  margin: 0px;
+}
+
+/* ------------------------------- VENTANA MODAL */
+
+/* Estilos para la ventana modal */
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  text-align: center;
+  background: #56718b90;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ModalBtn {
+  position: absolute;
+  top: 18.5%;
+  left: 58.5%;
+}
+
+.ModalBtn > a {
+  font-size: 2em;
+  color: #ddd;
+  padding: 6px 8px;
+  padding-top: 4px;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sistema Inventario</title>
-    <link rel="stylesheet" href="./vista/css/sty.css" />
+    <link rel="stylesheet" href="./vista/css/stylesss.css" />
 
     <!-- ICONS  -->
     <link
@@ -38,7 +38,7 @@
           </li>
           <li>
             <i class="fa-brands fa-stack-overflow"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Categorias">Categorias</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Categorias&table=Categoria">Categorias</a>
           </li>
           <li>
             <i class="fa-solid fa-grip-vertical"></i>
@@ -50,7 +50,7 @@
           </li>
           <li>
             <i class="fa-solid fa-list"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Ventas">Ventas</a>
+            <a href="http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente">Ventas</a>
           </li>
           <li>
             <i class="fa-solid fa-chart-column"></i>
@@ -61,4 +61,18 @@
     </aside>
 
     <main>
+<script>
+  var url = localStorage.getItem('url') || '';
+
+  function SaveUrl() {
+    var url = window.location.href;
+    localStorage.setItem('url', url);
+    console.log(url);
+  }
+
+  function LoadUrl() {
+    window.location.href = url;
+    console.log(url);
+  }
+</script>
         <!-- contenido-->

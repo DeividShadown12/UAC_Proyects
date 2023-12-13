@@ -1,6 +1,6 @@
 <?php 
     $on = $_REQUEST['on'];
-    $table = $_REQUEST['table'];
+    $table = $_REQUEST['tableShow'];
     $nombre = $_REQUEST['nombre'];
 ?>
 <div style="width: 100%; padding: 50px 30% 0 30%;">
@@ -19,7 +19,7 @@
                         $NCampo = $key['Field'];
                         if ($NCampo != "CodigoC" && $NCampo != "CodigoPr"):?> 
 
-                            <th class="TableHeader" "style="font-weight: bold;"><?php echo strtoupper($NCampo)?></th>
+                            <th class="TableHeader" style="font-weight: bold;"><?php echo strtoupper($NCampo)?></th>
 
                         <?php endif; ?>
                     <?php endforeach; ?>                   

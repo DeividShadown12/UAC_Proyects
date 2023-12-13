@@ -42,9 +42,43 @@
         //guardar
         static function guardar(){
             $table = $_REQUEST['table']; 
-
+            
             $data = "";
             $producto = new Modelo();
+
+            if (isset($_GET['CodCliente'])) {
+                $Nombre = $_REQUEST['CodCliente'];
+                $IGuales = $producto->db->query("SELECT * FROM $table WHERE CodCliente = '$Nombre'");
+                $Existe = $IGuales->fetchAll(PDO::FETCH_ASSOC);
+            }
+            elseif (isset($_GET['CodigoP'])) {
+                $Nombre = $_REQUEST['CodigoP'];
+                $IGuales = $producto->db->query("SELECT * FROM $table WHERE CodigoP = '$Nombre'");
+                $Existe = $IGuales->fetchAll(PDO::FETCH_ASSOC);
+            }
+            else {
+                $Nombre = $_REQUEST['Nombre'];
+                $IGuales = $producto->db->query("SELECT * FROM $table WHERE Nombre = '$Nombre'");
+                $Existe = $IGuales->fetchAll(PDO::FETCH_ASSOC);
+            }
+
+
+            if ($table == 'Venta_Producto') {
+                
+                $cod = $producto->db->query("SELECT * FROM Venta ORDER BY Codigo DESC LIMIT 1;")->fetchAll(PDO::FETCH_ASSOC);
+                $CodV = $cod[0]['Codigo'];
+                echo "<script>console.log('$CodV')</script>";
+                $IGuales = $producto->db->query("SELECT * FROM $table WHERE CodigoV = $CodV AND CodigoP = '$Nombre'");
+                $Existe = $IGuales->fetchAll(PDO::FETCH_ASSOC);
+                
+            }
+
+            if ($Existe) {
+                echo "<script>alert('Oops!, Ya existe ". $_REQUEST['Nombre'] ." en los registros');</script>";
+                Controller::ReDirect($table);
+                return;
+            } 
+
             $NCampo = $producto->db->query("DESCRIBE $table");
             if ($NCampo) {
                $filas = $NCampo->fetchAll(PDO::FETCH_ASSOC);
@@ -65,25 +99,10 @@
                $data = substr($data, 0, -1);
             }
 
-
-
-            if ($table == 'Empleado_Departamento') {
-                $CodigoE = $_REQUEST['CodigoE']; 
-                $CodigoD = $_REQUEST['CodigoD']; 
-
-                $IGuales = $producto->db->query("SELECT * FROM Empleado_Departamento WHERE CodigoE = $CodigoE AND CodigoD = $CodigoD");
-                $Existe = $IGuales->fetchAll(PDO::FETCH_ASSOC);
-
-                if ($Existe) {
-                    echo "<script>alert('Ya existe este Empleado en el Departamento');</script>";
-                    return;
-                }                
-            }
-
-
             $dato = $producto->insertar($table,$data);
             // require_once("vista/pruebas.php");
-            header("location:".urlsite);
+
+            Controller::ReDirect($table);
         }
 
 
@@ -122,7 +141,8 @@
 
             // require_once("vista/pruebas.php");
             $dato = $producto->actualizar($table,$data,"Codigo=".$id);
-            header("location:".urlsite);
+            // header("location:".urlsite);
+            Controller::ReDirect($table);
         }
 
        
@@ -132,12 +152,37 @@
             $table = $_REQUEST['table'];
             $producto = new Modelo();
             $dato = $producto->eliminar($table,"Codigo=".$id);
-            header("location:".urlsite);
+
+            Controller::ReDirect($table);
         }
 
         static function addRelacion(){ 
             $producto = new Modelo(); 
             require_once("vista/addRelacion.php");
+        }
+
+        static function ReDirect($table){
+            $url = '';
+            if ($table == 'Categoria') {
+                $url = "http://localhost/Proyecto/index.php?m=index&url=Categorias&table=Categoria";
+            }
+            elseif ($table == 'Producto') {
+                $url = "http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Producto";
+
+            } 
+            elseif ($table == 'Venta') {
+                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
+
+            }
+            elseif ($table == 'Cliente') {
+                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente";
+
+            }
+            elseif ($table == 'Venta_Producto') {
+                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
+
+            }
+            header("Location:".$url);
         }
    
     }

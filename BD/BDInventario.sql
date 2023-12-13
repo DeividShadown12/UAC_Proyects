@@ -133,4 +133,18 @@ INSERT INTO Producto (Nombre, Precio, Stock, CodigoC, CodigoPr) VALUES
     ('Arroz', 2.49, 200, 5, 5);
 
 
+INSERT INTO Venta (CodCliente, Fecha, Descuento, MontoFinal)
+VALUES (3, '2023-12-01', 0.50, 0.00);
+
+INSERT INTO Venta_Producto (Cantidad, Precio, CodigoV, CodigoP)
+VALUES (10, 0, 3, 3);
+
+DELETE FROM Venta_Producto WHERE Codigo = 3;
+DELETE FROM Venta WHERE Codigo = 2;
+
+SELECT * FROM Venta;
+SELECT * FROM Producto;
+SELECT * FROM Venta_Producto;
+
+DESCRIBE Producto;
 
