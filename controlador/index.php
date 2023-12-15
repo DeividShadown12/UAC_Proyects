@@ -42,6 +42,7 @@
         //guardar
         static function guardar(){
             $table = $_REQUEST['table']; 
+            $url = $_REQUEST['url']; 
             
             $data = "";
             $producto = new Modelo();
@@ -102,7 +103,7 @@
             $dato = $producto->insertar($table,$data);
             // require_once("vista/pruebas.php");
 
-            Controller::ReDirect($table);
+            Controller::ReDirect($table, $url);
         }
 
 
@@ -119,6 +120,7 @@
         static function actualizar(){
             $id = $_REQUEST['id'];
             $table = $_REQUEST['table'];
+            $url = $_REQUEST['url']; 
 
             $data = "";
             $producto = new Modelo();
@@ -142,7 +144,7 @@
             // require_once("vista/pruebas.php");
             $dato = $producto->actualizar($table,$data,"Codigo=".$id);
             // header("location:".urlsite);
-            Controller::ReDirect($table);
+            Controller::ReDirect($table, $url);
         }
 
        
@@ -150,10 +152,12 @@
         static function eliminar(){    
             $id = $_REQUEST['id'];
             $table = $_REQUEST['table'];
+            $url = $_REQUEST['url']; 
+            
             $producto = new Modelo();
             $dato = $producto->eliminar($table,"Codigo=".$id);
 
-            Controller::ReDirect($table);
+            Controller::ReDirect($table, $url);
         }
 
         static function addRelacion(){ 
@@ -161,25 +165,30 @@
             require_once("vista/addRelacion.php");
         }
 
-        static function ReDirect($table){
+        static function ReDirect($table, $urls = null){ 
             $url = '';
             if ($table == 'Categoria') {
-                $url = "http://localhost/Proyecto/index.php?m=index&url=Categorias&table=Categoria";
+                $url = "/Proyecto/index.php?m=index&url=Categorias&table=Categoria";
             }
             elseif ($table == 'Producto') {
-                $url = "http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Producto";
+                $url = "/Proyecto/index.php?m=index&url=Tabla&table=Producto";
 
             } 
             elseif ($table == 'Venta') {
-                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
+                $url = "/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
 
             }
             elseif ($table == 'Cliente') {
-                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente";
+                if ($urls == 'Tabla') {
+                    $url = "/Proyecto/index.php?m=index&url=Tabla&table=Cliente";
+                }
+                else {
+                    $url = "/Proyecto/index.php?m=index&url=Ventas&table=Cliente";
+                }
 
             }
             elseif ($table == 'Venta_Producto') {
-                $url = "http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
+                $url = "/Proyecto/index.php?m=index&url=Ventas&table=Cliente&on=1";
 
             }
             header("Location:".$url);

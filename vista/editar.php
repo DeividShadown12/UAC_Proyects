@@ -68,6 +68,7 @@
         </a> <br>
         <input type="hidden" name="m" value="actualizar">
         <input type="hidden" name="table" value="<?php echo $_REQUEST['table']?>">
+        <input type="hidden" name="url" value="<?php echo $_REQUEST['url']?>">
 </form>
 </div>
 </div>

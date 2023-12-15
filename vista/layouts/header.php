@@ -30,31 +30,27 @@
         <ul>
           <li>
             <i class="fa-solid fa-house"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Panel">Panel de Control</a>
+            <a href="/Proyecto/index.php?m=index&url=Panel">Panel de Control</a>
           </li>
           <li>
             <i class="fa-solid fa-user-large"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=editar">Accesos</a>
+            <a href="/Proyecto/index.php?m=index&url=Tabla&table=Cliente">Clientes</a>
           </li>
           <li>
             <i class="fa-brands fa-stack-overflow"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Categorias&table=Categoria">Categorias</a>
+            <a href="/Proyecto/index.php?m=index&url=Categorias&table=Categoria">Categorias</a>
           </li>
           <li>
             <i class="fa-solid fa-grip-vertical"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Producto">Productos</a>
-          </li>
-          <li>
-            <i class="fa-solid fa-image"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Media">Media</a>
+            <a href="/Proyecto/index.php?m=index&url=Tabla&table=Producto">Productos</a>
           </li>
           <li>
             <i class="fa-solid fa-list"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Ventas&table=Cliente">Ventas</a>
+            <a href="/Proyecto/index.php?m=index&url=Ventas&table=Cliente">Ventas</a>
           </li>
           <li>
             <i class="fa-solid fa-chart-column"></i>
-            <a href="http://localhost/Proyecto/index.php?m=index&url=Tabla&table=Venta">Reporte Ventas</a>
+            <a href="/Proyecto/index.php?m=index&url=Tabla&table=Venta">Reporte Ventas</a>
           </li>
         </ul>
       </nav>

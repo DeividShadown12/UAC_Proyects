@@ -40,10 +40,10 @@
                                 <?php endif; ?>
                             <?php endforeach; ?>
 							<td style="width: 10%; text-align: center;">
-                                <a class="btn edit" href="index.php?m=editar&id=<?php echo $fila['Codigo']?>&table=<?php echo $_REQUEST['table']?>">
+                                <a class="btn edit" href="index.php?m=editar&url=<?php echo $_REQUEST['url'];?>&id=<?php echo $fila['Codigo']?>&table=<?php echo $_REQUEST['table']?>">
 									<i class="fa-solid fa-pen"></i>
 								</a>
-                                <a class="btn delete" href="index.php?m=eliminar&id=<?php echo $fila['Codigo']?>&table=<?php echo $_REQUEST['table']?>" onclick="return confirm('ESTA SEGURO'); false">
+                                <a class="btn delete" href="index.php?m=eliminar&url=<?php echo $_REQUEST['url'];?>&id=<?php echo $fila['Codigo']?>&table=<?php echo $_REQUEST['table']?>" onclick="return confirm('ESTA SEGURO'); false">
 									<i class="fa-solid fa-trash"></i>
 								</a>
                             </td>
